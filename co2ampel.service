@@ -1,0 +1,10 @@
+[Unit]
+Description= co2 Ampel
+Wants=syslog.service
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/python3 /opt/co2ampel/co2ampel.py
+
+[Install]
+WantedBy=multi-user.target
