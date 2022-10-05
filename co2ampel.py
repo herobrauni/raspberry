@@ -10,12 +10,16 @@ import ST7735
 from PIL import Image, ImageDraw, ImageFont
 from fonts.ttf import RobotoMedium as UserFont
 import logging
+import spidev
 
 scd30 = SCD30()
 if (scd30.get_auto_self_calibration_active() != 1):
     scd30.set_auto_self_calibration(1)
 scd30.start_periodic_measurement()
 
+# Reset Display for calibration
+tempspi = spidev.SpiDev(0, ST7735.BG_SPI_CS_FRONT)
+tempspi.close()
 
 # Create LCD class instance.
 disp = ST7735.ST7735(
@@ -67,11 +71,12 @@ try:
             back_colour = (255, 255, 255)
 
         message = str(int(scd30_co2))
-        size_x, size_y = draw.textsize(message, font)
+        #size_x, size_y = draw.textsize(message, font)
+        size_x = draw.textlength(message, font)
 
         # Calculate text position
         x = (WIDTH - size_x) / 2
-        y = (HEIGHT / 2) - (size_y / 2)
+        y = (HEIGHT / 2) - (47 / 2)
 
         # Draw background rectangle and write text.
         draw.rectangle((0, 0, 160, 80), back_colour)

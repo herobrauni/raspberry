@@ -1,0 +1,11 @@
+[Unit]
+Description=Enviroplus MQTT Logger
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /opt/mqtt/mqtt-all.py --broker localhost --port 1883 --topic enviroplus --interval 5 --username mqtt --password *********
+WorkingDirectory=/opt/mqtt/
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

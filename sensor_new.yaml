@@ -1,0 +1,43 @@
+sensor:
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.humidity }}"
+    name: "enviro_humidity"
+    unique_id: "enviro_humidity"
+    unit_of_measurement: '%'
+    icon: "mdi:water-percent"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.pressure }}"
+    name: "enviro_pressure"
+    unique_id: "enviro_pressure"
+    unit_of_measurement: 'Pa'
+    icon: "mdi:arrow-down-bold"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.temperature }}"
+    name: "enviro_temperature"
+    unique_id: "enviro_temperature"
+    unit_of_measurement: 'C'
+    icon: "mdi:thermometer"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.lux }}"
+    name: "enviro_lux"
+    unique_id: "enviro_lux"
+    unit_of_measurement: 'lx'
+    icon: "mdi:weather-sunny"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.nh3 }}"
+    name: "enviro_nh3"
+    unique_id: "enviro_nh3"
+    unit_of_measurement: 'nh3'
+    icon: "mdi:thought-bubble"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.reduced }}"
+    name: "enviro_reduced"
+    unique_id: "enviro_reduced"
+    unit_of_measurement: 'CO'
+    icon: "mdi:thought-bubble"
+  - state_topic: "enviroplus"
+    value_template: "{{ value_json.oxidised }}"
+    name: "enviro_oxidised"
+    unique_id: "enviro_oxidised"
+    unit_of_measurement: 'no2'
+    icon: "mdi:thought-bubble"
